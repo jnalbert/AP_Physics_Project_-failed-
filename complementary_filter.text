@@ -1,0 +1,67 @@
+// #include <Adafruit_MPU6050.h>
+// #include <Adafruit_Sensor.h>
+// #include <Wire.h>
+
+// Adafruit_MPU6050 mpu;
+
+// const float dt = 0.01;  // Time step in seconds
+// const float alpha = 0.98;  // Complementary filter constant
+
+// float accX, accY, accZ;  // Acceleration values
+// float gyroX, gyroY, gyroZ;  // Gyroscope values
+
+// float angleX = 0.0;  // Estimated angle around X-axis
+// float angleY = 0.0;  // Estimated angle around Y-axis
+
+// float posX = 0.0;  // Estimated x position
+// float posY = 0.0;  // Estimated y position
+
+// float velX = 0.0;  // Estimated x velocity
+// float velY = 0.0;  // Estimated y velocity
+
+// void setup() {
+//   Serial.begin(9600);
+//   while (!Serial)
+//     delay(10);  // Wait for serial connection
+
+//   mpu.begin();
+//   mpu.setAccelerometerRange(MPU6050_RANGE_8_G);
+//   mpu.setGyroRange(MPU6050_RANGE_500_DEG);
+// }
+
+// void loop() {
+//   // Read acceleration and gyroscope data
+//   sensors_event_t accelEvent, gyroEvent, temp;
+//   mpu.getEvent(&accelEvent, &gyroEvent, &temp);
+
+//   // Convert raw data to SI units
+//   accX = accelEvent.acceleration.x * 9.81;  // Convert from m/s^2 to g
+//   accY = accelEvent.acceleration.y * 9.81;
+//   accZ = accelEvent.acceleration.z * 9.81;
+//   gyroX = gyroEvent.gyro.x * DEG_TO_RAD;  // Convert from deg/s to rad/s
+//   gyroY = gyroEvent.gyro.y * DEG_TO_RAD;
+//   gyroZ = gyroEvent.gyro.z * DEG_TO_RAD;
+
+//   // Complementary filter for roll and pitch estimation
+//   float accAngleX = atan2(accY, accZ) * RAD_TO_DEG;  // Calculate acceleration-based angle around X-axis
+//   float accAngleY = atan2(accX, accZ) * RAD_TO_DEG;  // Calculate acceleration-based angle around Y-axis
+
+//   angleX = alpha * (angleX + gyroX * dt) + (1 - alpha) * accAngleX;  // Complementary filter update for X-axis
+//   angleY = alpha * (angleY + gyroY * dt) + (1 - alpha) * accAngleY;  // Complementary filter update for Y-axis
+
+//   // Integrate acceleration to obtain velocity
+//   velX += (accX * cos(angleY) - accY * sin(angleY)) * dt;
+//   velY += (accX * sin(angleX) * sin(angleY) + accY * cos(angleX) + accZ * sin(angleX) * cos(angleY)) * dt;
+
+//   // Integrate velocity to obtain position
+//   posX += velX * dt;
+//   posY += velY * dt;
+
+//   // Print estimated position
+//   Serial.print("Estimated Position (X, Y): ");
+//   Serial.print(posX);
+//   Serial.print(", ");
+//   Serial.println(posY);
+
+//   delay(10);  // Time step between filter updates
+// }

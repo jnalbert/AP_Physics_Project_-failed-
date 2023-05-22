@@ -1,0 +1,120 @@
+// #include <Adafruit_MPU6050.h>
+// #include <Adafruit_Sensor.h>
+// #include <Wire.h>
+// #include <list>
+// using namespace std;
+
+// // void getSensorDataByMedian() {
+// //   list<float> xData, yData, zData;
+
+// //   for (int i = 0; i < 50; i++) {
+// //     sensors_event_t a, g, temp;
+// //     mpu.getEvent(&a, &g, &temp);
+// //     a.acceleration.x -= accelOffsetsGlobal[0];
+// //     a.acceleration.y -= accelOffsetsGlobal[1];
+// //     a.acceleration.z -= accelOffsetsGlobal[2];
+// //     xData.push_back(a.acceleration.x);
+// //     yData.push_back(a.acceleration.y);
+// //     zData.push_back(a.acceleration.z);
+// //     delay(1);
+// //     }
+// //     xData.sort();
+// //     yData.sort();
+// //     zData.sort();
+
+// //     list<float>::iterator xIt = xData.begin();
+// //     advance(xIt, 24);
+// //     list<float>::iterator yIt = yData.begin();
+// //     advance(yIt, 24);
+// //     list<float>::iterator zIt = zData.begin();
+// //     advance(zIt, 24);
+
+// //     printAccelValues(*xIt, *yIt, *zIt);
+ 
+
+// // }
+
+// // void calibrateMPU6050Mean() {
+// //   Serial.print("Starting Calibration by mean");
+// //   const int numSamples = 1000;
+// //   const int sampleDelay = 4;
+
+// //   float accelOffsets[3] = {0.0f, 0.0f, 0.0f};
+// //   float gyroOffsets[3] = {0.0f, 0.0f, 0.0f};
+
+// //   // Collect accelerometer and gyroscope data for calibration
+// //   for (int i = 0; i < numSamples; i++) {
+// //     sensors_event_t a, g, temp;
+// //     mpu.getEvent(&a, &g, &temp);
+
+// //     accelOffsets[0] += a.acceleration.x;
+// //     accelOffsets[1] += a.acceleration.y;
+// //     accelOffsets[2] += a.acceleration.z;
+
+// //     gyroOffsets[0] += g.gyro.x;
+// //     gyroOffsets[1] += g.gyro.y;
+// //     gyroOffsets[2] += g.gyro.z;
+
+// //     delay(sampleDelay);
+// //   }
+
+// //   // Calculate the average offsets
+// //   accelOffsets[0] /= numSamples;
+// //   accelOffsets[1] /= numSamples;
+// //   accelOffsets[2] /= numSamples;
+
+// //   gyroOffsets[0] /= numSamples;
+// //   gyroOffsets[1] /= numSamples;
+// //   gyroOffsets[2] /= numSamples;
+
+// //   // prints the offsets
+// //   printOffsets(accelOffsets);
+// //   // sets thhe accel offsets
+// //   accelOffsetsGlobal[0] = accelOffsets[0];
+// //   accelOffsetsGlobal[1] = accelOffsets[1];
+// //   accelOffsetsGlobal[2] = accelOffsets[2];
+
+// //   // set the gryo offsets
+// //   gyrouyOffsetsGlobal[0] = gyroOffsets[0];
+// //   gyrouyOffsetsGlobal[1] = gyroOffsets[1];
+// //   gyrouyOffsetsGlobal[2] = gyroOffsets[2];
+
+
+// //   // Set the calculated offsets
+// //   // mpu.setXAccelOffset(-accelOffsets[0]);
+// //   // mpu.setYAccelOffset(-accelOffsets[1]);
+// //   // mpu.setZAccelOffset((16384 - accelOffsets[2]));
+
+// //   // mpu.setXGyroOffset(-gyroOffsets[0]);
+// //   // mpu.setYGyroOffset(-gyroOffsets[1]);
+// //   // mpu.setZGyroOffset(-gyroOffsets[2]);
+// // }
+
+// // void calibrateMPU6050Median() {
+// //   Serial.print("Starting Calibration by mean");
+// //   const int numSamples = 1000;
+// //   const int sampleDelay = 4;
+// // }
+
+// // void printAccelValues(float x, float y, float z) {
+// //   Serial.print("Acceleration [X,Y,Z]: ");
+// //   Serial.print(x);
+// //   Serial.print(", ");
+// //   Serial.print(y);
+// //   Serial.print(", ");
+// //   Serial.print(z);
+// //   Serial.println(" m/s^2");
+// // }
+
+// // void printOffsets (float offsets[3]) {
+// //   Serial.print(" X offset: ");
+// //   Serial.print(offsets[0]);
+// //   Serial.print("  Y offset: ");
+// //   Serial.print(offsets[1]);
+// //   Serial.print("  Z offset: ");
+// //   Serial.println(offsets[2]);
+// // }
+
+// void testPrint() {
+//   Serial.println("Hello World");
+// }

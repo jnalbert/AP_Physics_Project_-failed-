@@ -1,0 +1,7 @@
+{
+    "sketch": "AP_Physics_Project.ino",
+    "output": "build",
+    "board": "arduino:samd:mkr1000",
+    "port": "/dev/tty.usbmodem146401",
+    "programmer": "atmel_ice"
+}
